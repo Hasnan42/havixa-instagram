@@ -6,7 +6,8 @@ One post per run, so a backlog never floods the feed.
 
 Env:  IG_ACCESS_TOKEN   Instagram Login token (instagram_business_content_publish)
       GITHUB_REPOSITORY, GITHUB_SHA   set by Actions; used to build jsDelivr image URLs
-Flag: --dry-run   print what would be published, call nothing
+Flags: --dry-run  print what would be published, call nothing
+       --check    confirm the token works and show the publishing quota
 """
 import datetime as dt
 import json
@@ -95,6 +96,11 @@ def publish(post, caption):
 
 
 def main():
+    if "--check" in sys.argv:
+        me = call("GET", "me", fields="user_id,username,account_type")
+        quota = call("GET", f"{me['user_id']}/content_publishing_limit", fields="quota_usage,config")
+        print(f"token ok: @{me['username']} ({me.get('account_type')}), publishing quota {quota}")
+        return
     posts = due_posts()
     if not posts:
         print("nothing due")
