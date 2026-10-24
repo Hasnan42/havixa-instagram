@@ -1,0 +1,29 @@
+/* Havixa Solutions brand tokens, copied from the live site (C:\Havixa Site\src\styles\base\tokens.css). */
+@font-face { font-family: "Space Grotesk"; font-weight: 400; src: url(fonts/space-grotesk-400.woff2) format("woff2"); }
+@font-face { font-family: "Space Grotesk"; font-weight: 500; src: url(fonts/space-grotesk-500.woff2) format("woff2"); }
+@font-face { font-family: "Space Grotesk"; font-weight: 600; src: url(fonts/space-grotesk-600.woff2) format("woff2"); }
+@font-face { font-family: "Space Grotesk"; font-weight: 700; src: url(fonts/space-grotesk-700.woff2) format("woff2"); }
+@font-face { font-family: "DM Sans"; font-weight: 400; src: url(fonts/dm-sans-400.woff2) format("woff2"); }
+@font-face { font-family: "DM Sans"; font-weight: 500; src: url(fonts/dm-sans-500.woff2) format("woff2"); }
+@font-face { font-family: "DM Sans"; font-weight: 600; src: url(fonts/dm-sans-600.woff2) format("woff2"); }
+@font-face { font-family: "DM Sans"; font-weight: 700; src: url(fonts/dm-sans-700.woff2) format("woff2"); }
+@font-face { font-family: "Space Mono"; font-weight: 400; src: url(fonts/space-mono-400.woff2) format("woff2"); }
+@font-face { font-family: "Space Mono"; font-weight: 700; src: url(fonts/space-mono-700.woff2) format("woff2"); }
+
+:root {
+  --coral: #ff5a2c;
+  --coral-bright: #ff7a45;
+  --coral-deep: #e03d0f;
+  --bg: #0c0b0a;
+  --surface-1: #131110;
+  --surface-2: #1a1716;
+  --surface-3: #221e1c;
+  --text: #efe9df;
+  --text-2: #a8a19a;
+  --text-3: #6e6862;
+  --line: rgba(239, 233, 223, 0.1);
+  --line-strong: rgba(239, 233, 223, 0.18);
+  --display: "Space Grotesk", sans-serif;
+  --body: "DM Sans", sans-serif;
+  --mono: "Space Mono", monospace;
+}

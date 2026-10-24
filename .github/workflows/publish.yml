@@ -1,0 +1,31 @@
+name: Publish due posts
+
+on:
+  schedule:
+    - cron: "17 * * * *" # hourly, off the top of the hour when Actions is busiest
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency: publish
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Publish next due carousel
+        env:
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+        run: python tools/publish.py
+      - name: Record result
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898299+github-actions[bot]@users.noreply.github.com"
+          git add posts
+          git diff --cached --quiet || { git commit -m "Record publish result"; git push; }

@@ -1,0 +1,11 @@
+Starbucks spends about $400M a year on software. Now it is using AI to build its own.
+
+According to Bloomberg, Starbucks is building in house replacements for a Microsoft inventory system and an IBM maintenance platform, alongside its own point of sale to replace Oracle. The first tools could roll out by late 2027.
+
+The savings so far are smaller than the headlines suggest (about $30M expected in 2026). But the signal is loud: when AI makes custom software cheap to build, paying forever for tools you barely use gets harder to justify.
+
+Would your business build or buy? Tell us in the comments, and follow for a tech brief like this every week.
+
+Sources: Bloomberg, Fortune, Forbes, Moneywise (July 2026)
+
+#Starbucks #AI #SoftwareDevelopment #Automation #SaaS #TechNews #BusinessAutomation #CustomSoftware #AIinBusiness #Havixa
