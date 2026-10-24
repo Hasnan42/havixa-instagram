@@ -1,5 +1,5 @@
 {
-  "status": "approved",
+  "status": "published",
   "publish_at": "2026-10-25T00:00:00+05:00",
   "note": "Approved demo from July 2026 news, published as the first live test.",
   "alt": [
@@ -8,5 +8,8 @@
     "The numbers: $400M spent on software every year, $30M expected savings on tech spend in 2026, and first new tools could roll out in 2027. A bar compares savings so far with the total bill.",
     "Why it matters: when software gets cheap to build, renting it gets hard to justify. IBM, ServiceNow and Salesforce shares fell on the news. Starbucks already pulled one AI inventory tool. The real test is running it across thousands of stores.",
     "Closing question: would your business build or buy? Build means you own it, shaped to how you work. Buy means you rent it, with a fast start and a monthly bill. Follow Havixa for a tech brief every week."
-  ]
+  ],
+  "published_at": "2026-10-24T19:47:08+00:00",
+  "media_id": "17897118225420835",
+  "permalink": "https://www.instagram.com/p/De46mELifGZ/"
 }
