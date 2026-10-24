@@ -1,5 +1,12 @@
 {
-  "status": "draft",
-  "publish_at": null,
-  "note": "Approved demo from July 2026 news. Kept as the style reference; too old to publish."
+  "status": "approved",
+  "publish_at": "2026-10-25T00:00:00+05:00",
+  "note": "Approved demo from July 2026 news, published as the first live test.",
+  "alt": [
+    "Havixa tech brief cover. Headline: Starbucks is building its own software. It pays about $400M a year for software, and AI is writing the replacements. Line drawing of a coffee cup with code rising like steam.",
+    "What happened: three vendor tools rebuilt in house. Microsoft inventory tracking, IBM maintenance platform and Oracle point of sale, each replaced by a Starbucks system. AI assisted coding is doing much of the build. Source: Bloomberg via Fortune, July 2026.",
+    "The numbers: $400M spent on software every year, $30M expected savings on tech spend in 2026, and first new tools could roll out in 2027. A bar compares savings so far with the total bill.",
+    "Why it matters: when software gets cheap to build, renting it gets hard to justify. IBM, ServiceNow and Salesforce shares fell on the news. Starbucks already pulled one AI inventory tool. The real test is running it across thousands of stores.",
+    "Closing question: would your business build or buy? Build means you own it, shaped to how you work. Buy means you rent it, with a fast start and a monthly bill. Follow Havixa for a tech brief every week."
+  ]
 }

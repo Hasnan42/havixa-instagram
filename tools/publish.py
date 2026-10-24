@@ -74,20 +74,27 @@ def image_urls(post):
     return [f"https://cdn.jsdelivr.net/gh/{repo}@{sha}/{rel}/{s.name}" for s in slides]
 
 
-def publish(post, caption):
+def publish(post, caption, alts):
     urls = image_urls(post)
     if not 2 <= len(urls) <= 20:
         raise RuntimeError(f"need 2 to 20 slides, found {len(urls)} (did you run tools/render.py?)")
+    if alts and len(alts) != len(urls):
+        raise RuntimeError(f"post.json has {len(alts)} alt texts for {len(urls)} slides")
     if DRY:
-        print("\n".join(urls))
+        print("\n".join(f"{u}\n  alt: {a}" for u, a in zip(urls, alts or [""] * len(urls))))
         print(f"--- caption ({len(caption)} chars) ---\n{caption}")
         return None
     me = call("GET", "me", fields="user_id,username")
     ig = me["user_id"]
-    children = [call("POST", f"{ig}/media", image_url=u, is_carousel_item="true")["id"] for u in urls]
+    children = []
+    for i, u in enumerate(urls):
+        extra = {"alt_text": alts[i][:1000]} if alts else {}
+        children.append(call("POST", f"{ig}/media", image_url=u, is_carousel_item="true", **extra)["id"])
     for c in children:
         wait_ready(c)
-    carousel = call("POST", f"{ig}/media", media_type="CAROUSEL", children=",".join(children), caption=caption)["id"]
+    # Slides are drawn in code, so state plainly that nothing here is AI generated.
+    carousel = call("POST", f"{ig}/media", media_type="CAROUSEL", children=",".join(children), caption=caption,
+                    is_ai_generated="false")["id"]
     wait_ready(carousel)
     media_id = call("POST", f"{ig}/media_publish", creation_id=carousel)["id"]
     permalink = call("GET", media_id, fields="permalink").get("permalink")
@@ -112,7 +119,7 @@ def main():
         sys.exit(f"{post.name}: caption over Instagram limits (2200 chars, 30 hashtags)")
     print(f"publishing {post.name}")
     try:
-        result = publish(post, caption)
+        result = publish(post, caption, meta.get("alt"))
     except Exception as e:
         meta["attempts"] = meta.get("attempts", 0) + 1
         meta["last_error"] = str(e)[:500]
